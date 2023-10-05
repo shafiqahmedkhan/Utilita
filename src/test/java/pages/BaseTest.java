@@ -15,4 +15,8 @@ public class BaseTest {
         return homePage;
     }
 
+    public void closeBrowser(){
+        driver.close();
+    }
+
 }

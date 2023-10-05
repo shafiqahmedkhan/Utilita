@@ -1,6 +1,8 @@
 package stepDefinitions;
 
 
+import io.cucumber.java.After;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,6 +16,11 @@ public class MyStepdefs extends BaseTest {
     WebDriver driver;
     public HomePage homePage;
     public HelpPage helpPage;
+
+    @After
+    public void tearDown(){
+        closeBrowser();
+    }
 
     @Given("the website has loaded")
     public void theWebsiteHasLoaded() {
@@ -39,5 +46,25 @@ public class MyStepdefs extends BaseTest {
         //helpPage.titleDisplayed();
         //driver.findElement(By.linkText("Help Centre"));
 
+    }
+
+    @Given("user navigates to the your customer reference number page")
+    public void userNavigatesToTheYourCustomerReferenceNumberPage() {
+        homePage = setUpBrowser();
+    }
+
+    @When("no details are filled out")
+    public void noDetailsAreFilledOut() {
+        System.out.println("1");
+    }
+
+    @And("user clicks on Find button")
+    public void userClicksOnFindButton() {
+        System.out.println("2");
+    }
+
+    @Then("error message ‘Please provide your email\\/phone number and postcode’ will show")
+    public void errorMessagePleaseProvideYourEmailPhoneNumberAndPostcodeWillShow() {
+        System.out.println("3");
     }
 }
