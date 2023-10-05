@@ -54,6 +54,24 @@
       <version>4.13.0</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/picocontainer/picocontainer -->
+    <dependency>
+      <groupId>picocontainer</groupId>
+      <artifactId>picocontainer</artifactId>
+      <version>1.2</version>
+    </dependency>
 
   </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>16</source>
+                    <target>16</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
