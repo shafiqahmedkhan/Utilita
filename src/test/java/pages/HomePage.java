@@ -1,11 +1,13 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class HomePage {
 
     WebDriver driver;
+    String homePageUrl = "https://utilita.co.uk/";
 
     public HomePage(WebDriver driver){
         this.driver = driver;
@@ -14,7 +16,11 @@ public class HomePage {
     By allowCookiesBtn = By.cssSelector("a[id*='AllowAll']");
 
     public void goTo(){
-        driver.get("https://utilita.co.uk/");
+        driver.get(homePageUrl);
+    }
+
+    public void pageDisplayed(){
+        Assert.assertEquals(homePageUrl, driver.getCurrentUrl());
     }
 
     public HelpPage clickHelpBtn(){

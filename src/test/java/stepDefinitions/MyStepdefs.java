@@ -2,6 +2,7 @@ package stepDefinitions;
 
 
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -22,40 +23,34 @@ public class MyStepdefs extends BaseTest {
 
     public CustRefNoPage custRefNoPage;
 
+    @Before
+    public void tearUp() throws InterruptedException {
+        homePage = startBrowser();
+    }
+
     @After
     public void tearDown(){
         closeBrowser();
     }
 
-    @Given("the website has loaded")
-    public void theWebsiteHasLoaded() throws InterruptedException {
-        //System.setProperty("webdriver.chrome.driver", "/Users/shafiqahmedkhan/Downloads/chromedriver-mac-arm64/chromedriver");
-        //driver = new ChromeDriver();
-        homePage = setUpBrowser();
-        //HomePage homePage = new HomePage(driver);
-        //homePage.goTo();
+    @Given("the home page is displayed")
+    public void theHomePageIsDisplayed() throws InterruptedException {
+        homePage.pageDisplayed();
     }
 
     @When("user clicks on Help")
     public void userClicksOnHelp() {
-        //HomePage homePage = new HomePage(driver);
         helpPage = homePage.clickHelpBtn();
     }
 
     @Then("Help screen will load")
     public void helpScreenWillLoad() {
         helpPage.titleDisplayed();
-        //System.out.println("123");
-//        Thread.sleep(5000);
-        //HelpPage helpPage = new HelpPage(driver);
-        //helpPage.titleDisplayed();
-        //driver.findElement(By.linkText("Help Centre"));
-
     }
 
     @Given("user navigates to the your customer reference number page")
     public void userNavigatesToTheYourCustomerReferenceNumberPage() throws InterruptedException {
-        homePage = setUpBrowser();
+        homePage = startBrowser();
         helpPage = homePage.clickHelpBtn();
         custRefNoPage = helpPage.navigateToCustRefNoPage();
     }
