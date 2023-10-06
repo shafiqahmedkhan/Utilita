@@ -9,13 +9,15 @@ public class BaseTest {
     WebDriver driver;
 
     public HomePage setUpBrowser() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "/Users/shafiqahmedkhan/Downloads/chromedriver-mac-arm64/chromedriver");
+        String chromeDriverLocation = System.getProperty("user.dir")+"/src/test/java/resources/chromedriver";
+        System.setProperty("webdriver.chrome.driver", chromeDriverLocation);
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         HomePage homePage = new HomePage(driver);
         homePage.goTo();
         Thread.sleep(3000);
         homePage.clickAllowCookiesBtn();
+        //System.out.println(System.getProperty("user.dir")+"/src/test/java/resources/chromedriver");
         return homePage;
     }
 

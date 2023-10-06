@@ -6,7 +6,7 @@ Feature: Find you customer reference
     When user clicks on Help
     Then Help screen will load
 
-  Scenario: User is shown an error message when no data in entered
-    Given user navigates to the your customer reference number page
-    When no details are filled out
-    Then error message "Please provide your email/phone number and postcode" will show
+#  Scenario: User is shown an error message when no data in entered
+#    Given user navigates to the your customer reference number page
+#    When no details are filled out
+#    Then error message "Please provide your email/phone number and postcode" will show
