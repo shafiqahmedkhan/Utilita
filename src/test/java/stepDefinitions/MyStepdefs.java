@@ -6,8 +6,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import pages.BaseTest;
+import pages.CustRefNoPage;
 import pages.HelpPage;
 import pages.HomePage;
 
@@ -17,13 +20,15 @@ public class MyStepdefs extends BaseTest {
     public HomePage homePage;
     public HelpPage helpPage;
 
+    public CustRefNoPage custRefNoPage;
+
     @After
     public void tearDown(){
         closeBrowser();
     }
 
     @Given("the website has loaded")
-    public void theWebsiteHasLoaded() {
+    public void theWebsiteHasLoaded() throws InterruptedException {
         //System.setProperty("webdriver.chrome.driver", "/Users/shafiqahmedkhan/Downloads/chromedriver-mac-arm64/chromedriver");
         //driver = new ChromeDriver();
         homePage = setUpBrowser();
@@ -49,13 +54,15 @@ public class MyStepdefs extends BaseTest {
     }
 
     @Given("user navigates to the your customer reference number page")
-    public void userNavigatesToTheYourCustomerReferenceNumberPage() {
+    public void userNavigatesToTheYourCustomerReferenceNumberPage() throws InterruptedException {
         homePage = setUpBrowser();
+        helpPage = homePage.clickHelpBtn();
+        custRefNoPage = helpPage.navigateToCustRefNoPage();
     }
 
     @When("no details are filled out")
     public void noDetailsAreFilledOut() {
-        System.out.println("1");
+        custRefNoPage.findCustRefNo();
     }
 
     @And("user clicks on Find button")
@@ -63,8 +70,9 @@ public class MyStepdefs extends BaseTest {
         System.out.println("2");
     }
 
-    @Then("error message ‘Please provide your email\\/phone number and postcode’ will show")
-    public void errorMessagePleaseProvideYourEmailPhoneNumberAndPostcodeWillShow() {
-        System.out.println("3");
+    @Then("error message {string} will show")
+    public void errorMessageWillShow(String message) {
+        custRefNoPage.errorMsgDisplayed(message);
     }
+
 }

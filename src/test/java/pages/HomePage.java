@@ -11,6 +11,7 @@ public class HomePage {
         this.driver = driver;
     }
     By HomeBtn = By.xpath("//div[@class='main-menu']/li[4]");
+    By allowCookiesBtn = By.cssSelector("a[id*='AllowAll']");
 
     public void goTo(){
         driver.get("https://utilita.co.uk/");
@@ -20,5 +21,9 @@ public class HomePage {
         driver.findElement(HomeBtn).click();
         HelpPage helpPage = new HelpPage(driver);
         return helpPage;
+    }
+
+    public void clickAllowCookiesBtn(){
+        driver.findElement(allowCookiesBtn).click();
     }
 }
