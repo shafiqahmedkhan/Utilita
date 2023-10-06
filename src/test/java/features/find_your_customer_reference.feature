@@ -1,8 +1,7 @@
 Feature: Find you customer reference
 
   Scenario: User is able to navigate to the help page from home page
-
-    Given the home page is displayed
+    Given the website has loaded
     When user clicks on Help
     Then Help screen will load
 
