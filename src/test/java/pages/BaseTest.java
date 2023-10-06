@@ -15,10 +15,9 @@ public class BaseTest {
         return driver;
     }
 
-    public HomePage startBrowser() throws InterruptedException {
+    public HomePage startBrowser() {
         HomePage homePage = new HomePage(initializeDriver());
         homePage.goTo();
-        Thread.sleep(3000);
         homePage.clickAllowCookiesBtn();
         return homePage;
     }

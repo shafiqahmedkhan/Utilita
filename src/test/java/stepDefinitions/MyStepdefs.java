@@ -24,7 +24,7 @@ public class MyStepdefs extends BaseTest {
     public CustRefNoPage custRefNoPage;
 
     @Before
-    public void tearUp() throws InterruptedException {
+    public void tearUp() {
         homePage = startBrowser();
     }
 
@@ -34,7 +34,7 @@ public class MyStepdefs extends BaseTest {
     }
 
     @Given("the home page is displayed")
-    public void theHomePageIsDisplayed() throws InterruptedException {
+    public void theHomePageIsDisplayed() {
         homePage.pageDisplayed();
     }
 
@@ -49,8 +49,7 @@ public class MyStepdefs extends BaseTest {
     }
 
     @Given("user navigates to the your customer reference number page")
-    public void userNavigatesToTheYourCustomerReferenceNumberPage() throws InterruptedException {
-        homePage = startBrowser();
+    public void userNavigatesToTheYourCustomerReferenceNumberPage() {
         helpPage = homePage.clickHelpBtn();
         custRefNoPage = helpPage.navigateToCustRefNoPage();
     }
@@ -58,11 +57,6 @@ public class MyStepdefs extends BaseTest {
     @When("no details are filled out")
     public void noDetailsAreFilledOut() {
         custRefNoPage.findCustRefNo();
-    }
-
-    @And("user clicks on Find button")
-    public void userClicksOnFindButton() {
-        System.out.println("2");
     }
 
     @Then("error message {string} will show")
