@@ -10,9 +10,11 @@ import pages.BaseTest;
 import pages.CustRefNoPage;
 import pages.HelpPage;
 import pages.HomePage;
+import pages.NaviagtionBar;
 
 public class MyStepdefs extends BaseTest {
 
+    public NaviagtionBar naviagtionBar;
     public HomePage homePage;
     public HelpPage helpPage;
 
@@ -35,7 +37,7 @@ public class MyStepdefs extends BaseTest {
 
     @When("user clicks on Help")
     public void userClicksOnHelp() {
-        helpPage = homePage.clickHelpBtn();
+        helpPage = homePage.naviagtionBar.clickHelpBtn();
     }
 
     @Then("Help screen will load")
@@ -45,7 +47,7 @@ public class MyStepdefs extends BaseTest {
 
     @Given("user navigates to the your customer reference number page")
     public void userNavigatesToTheYourCustomerReferenceNumberPage() {
-        helpPage = homePage.clickHelpBtn();
+        helpPage = homePage.naviagtionBar.clickHelpBtn();
         custRefNoPage = helpPage.navigateToCustRefNoPage();
     }
 

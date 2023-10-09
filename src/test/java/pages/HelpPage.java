@@ -8,10 +8,12 @@ import resources.environment;
 public class HelpPage {
 
     WebDriver driver;
+    public NaviagtionBar naviagtionBar;
     String helpPageUrl = environment.HELPPAGE.getUrl();
 
     public HelpPage(WebDriver driver){
         this.driver = driver;
+        naviagtionBar = new NaviagtionBar(driver);
     }
     By Title = By.cssSelector("h1[class='title']");
     By custRefLink = By.cssSelector("a[href*='/find-your-customer-reference-number']");
