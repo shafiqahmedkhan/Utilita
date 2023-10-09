@@ -3,10 +3,12 @@ package pages;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import resources.environment;
 
 public class HelpPage {
 
     WebDriver driver;
+    String helpPageUrl = environment.HELPPAGE.getUrl();
 
     public HelpPage(WebDriver driver){
         this.driver = driver;
@@ -15,7 +17,7 @@ public class HelpPage {
     By custRefLink = By.cssSelector("a[href*='/find-your-customer-reference-number']");
 
     public void goTo(){
-        driver.get("https://utilita.co.uk/help");
+        driver.get(helpPageUrl);
     }
 
     public void titleDisplayed(){

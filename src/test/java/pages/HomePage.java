@@ -3,11 +3,12 @@ package pages;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import resources.environment;
 
 public class HomePage {
 
     WebDriver driver;
-    String homePageUrl = "https://utilita.co.uk/";
+    String homePageUrl = environment.HOMEPAGE.getUrl();
 
     public HomePage(WebDriver driver){
         this.driver = driver;
