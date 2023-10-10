@@ -12,7 +12,7 @@ import pages.HelpPage;
 import pages.HomePage;
 import pages.NaviagtionBar;
 
-public class MyStepdefs extends BaseTest {
+public class findYourCustomerReferenceSteps extends BaseTest {
 
     public NaviagtionBar naviagtionBar;
     public HomePage homePage;
