@@ -35,13 +35,13 @@ public class findYourCustomerReferenceSteps extends BaseTest {
         homePage.pageDisplayed();
     }
 
-    @When("user clicks on Help")
-    public void userClicksOnHelp() {
+    @When("user navigates to the help page")
+    public void userNavigatesToTheHelpPage() {
         helpPage = homePage.naviagtionBar.clickHelpBtn();
     }
 
-    @Then("Help screen will load")
-    public void helpScreenWillLoad() {
+    @Then("help screen is displayed")
+    public void helpScreenIsDisplayed() {
         helpPage.titleDisplayed();
     }
 
@@ -56,8 +56,8 @@ public class findYourCustomerReferenceSteps extends BaseTest {
         custRefNoPage.findCustRefNo();
     }
 
-    @Then("error message {string} will show")
-    public void errorMessageWillShow(String message) {
+    @Then("error message {string} is shown")
+    public void errorMessageIsShown(String message) {
         custRefNoPage.errorMsgDisplayed(message);
     }
 
