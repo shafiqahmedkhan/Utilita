@@ -1,7 +1,8 @@
-package pages;
+package resources;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
 
 public class BaseTest {
 

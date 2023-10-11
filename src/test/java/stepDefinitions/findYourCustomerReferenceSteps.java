@@ -6,7 +6,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.BaseTest;
+import resources.BaseTest;
 import pages.CustRefNoPage;
 import pages.HelpPage;
 import pages.HomePage;
