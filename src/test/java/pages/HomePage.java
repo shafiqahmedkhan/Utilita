@@ -9,13 +9,14 @@ public class HomePage {
 
     WebDriver driver;
     public NaviagtionBar naviagtionBar;
+    public Cookies cookies;
     String homePageUrl = environment.HOMEPAGE.getUrl();
 
     public HomePage(WebDriver driver){
         this.driver = driver;
         naviagtionBar = new NaviagtionBar(driver);
+        cookies = new Cookies(driver);
     }
-    By allowCookiesBtn = By.cssSelector("a[id*='AllowAll']");
 
     public void goTo(){
         driver.get(homePageUrl);
@@ -25,7 +26,4 @@ public class HomePage {
         Assert.assertEquals(homePageUrl, driver.getCurrentUrl());
     }
 
-    public void clickAllowCookiesBtn(){
-        driver.findElement(allowCookiesBtn).click();
-    }
 }

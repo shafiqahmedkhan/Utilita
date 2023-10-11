@@ -1,5 +1,7 @@
 package resources;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.HomePage;
@@ -7,6 +9,7 @@ import pages.HomePage;
 public class BaseTest {
 
     WebDriver driver;
+    public HomePage homePage;
 
     public WebDriver initializeDriver() {
         String chromeDriverLocation = System.getProperty("user.dir")+"/src/test/java/resources/chromedriver";
@@ -19,12 +22,22 @@ public class BaseTest {
     public HomePage startBrowser() {
         HomePage homePage = new HomePage(initializeDriver());
         homePage.goTo();
-        homePage.clickAllowCookiesBtn();
+        homePage.cookies.clickAllowCookiesBtn();
         return homePage;
     }
 
     public void closeBrowser(){
         driver.close();
+    }
+
+    @Before
+    public void tearUp() {
+        homePage = startBrowser();
+    }
+
+    @After
+    public void tearDown(){
+        closeBrowser();
     }
 
 }

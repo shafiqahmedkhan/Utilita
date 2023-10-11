@@ -20,16 +20,6 @@ public class findYourCustomerReferenceSteps extends BaseTest {
 
     public CustRefNoPage custRefNoPage;
 
-    @Before
-    public void tearUp() {
-        homePage = startBrowser();
-    }
-
-    @After
-    public void tearDown(){
-        closeBrowser();
-    }
-
     @Given("the home page is displayed")
     public void theHomePageIsDisplayed() {
         homePage.pageDisplayed();
