@@ -30,14 +30,4 @@ public class BaseTest {
         driver.close();
     }
 
-    @Before
-    public void tearUp() {
-        homePage = startBrowser();
-    }
-
-    @After
-    public void tearDown(){
-        closeBrowser();
-    }
-
 }
